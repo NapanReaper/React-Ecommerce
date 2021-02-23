@@ -1,11 +1,13 @@
-import Products from "./components/Products/Products"
+import { Products, Navbar } from "./components"
+
 
 const App = () => {
- return (
+ return (<>
+  <Navbar />
   <div>
-   <h1>Ecommerce</h1>
    <Products />
   </div>
+ </>
  )
 }
 
