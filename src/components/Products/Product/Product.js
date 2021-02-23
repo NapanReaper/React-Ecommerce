@@ -6,19 +6,17 @@ const Product = ({ product }) => {
  const classes = useStyles();
  return (
   <Card className={classes.root}>
-   <CardMedia className={classes.media} image='' title={product.name} />
+   <CardMedia className={classes.media} image={product.image} title={product.name} />
    <CardContent>
     <div className="classes.cardContent">
-     <Typography variant='h5' gutterBottom>
+     <Typography gutterBottom variant="h5" component="h2">
       {product.name}
      </Typography>
-     <Typography variant='h5' >
+     <Typography gutterBottom variant="h5" component="h2">
       {product.price}
      </Typography>
     </div>
-    <Typography variant='h2' color='secondary'>
-     {product.description}
-    </Typography>
+    <Typography variant='body2' color='secondary'>{product.description}</Typography>
    </CardContent>
    <CardActions disableSpacing className={classes.cardActions}>
     <IconButton aria-label='Add to Cart'>
