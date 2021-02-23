@@ -1,10 +1,10 @@
 import { Grid } from '@material-ui/core'
-import Product from './Product'
+import Product from './Product/Product'
 
 const products = [
- { id: 1, name: 'Shoes', description: 'running' },
- { id: 2, name: 'Macbook', description: 'Apple' },
- { id: 3, name: 'Iphone', description: 'Apple' }
+ { id: 1, name: 'Shoes', price: '$5', description: 'running', },
+ { id: 2, name: 'Macbook', price: '$15', description: 'Apple', },
+ { id: 3, name: 'Iphone', price: '$25', description: 'Apple', }
 ]
 const Products = () => {
  return (
