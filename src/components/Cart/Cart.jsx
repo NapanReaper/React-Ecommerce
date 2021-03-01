@@ -1,11 +1,22 @@
 import { Container, Typography, Button, Grid } from '@material-ui/core';
 import CardItem from './CardItem/CardItem';
 import useStyles from './styles';
+import { Link } from 'react-router-dom';
 
-const Cart = ({ cart }) => {
+const Cart = ({
+  cart,
+  handleUpdateQty,
+  handleEmptyCart,
+  handleRemoveFromCart,
+}) => {
   const classes = useStyles();
   const EmptyCart = () => (
-    <Typography variant='subtitle1'>You have no items, start adding</Typography>
+    <Typography variant='subtitle1'>
+      You have no items,{' '}
+      <Link to='/' classes={classes.link}>
+        start adding
+      </Link>
+    </Typography>
   );
 
   const FilledCart = () => (
@@ -13,7 +24,11 @@ const Cart = ({ cart }) => {
       <Grid container spacing={3}>
         {cart.line_items.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
-            <CardItem item={item} />
+            <CardItem
+              item={item}
+              handleUpdateQty={handleUpdateQty}
+              handleRemoveFromCart={handleRemoveFromCart}
+            />
           </Grid>
         ))}
       </Grid>
@@ -27,11 +42,10 @@ const Cart = ({ cart }) => {
             size='large'
             type='button'
             variant='contained'
-            color='secondary'>
+            color='secondary'
+            onClick={handleEmptyCart}>
             Empty Cart
           </Button>
-        </div>
-        <div>
           <Button
             className={classes.checkoutButton}
             size='large'
