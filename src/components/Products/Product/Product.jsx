@@ -19,7 +19,7 @@ const Product = ({ product, handleAddToCart }) => {
         title={product.name}
       />
       <CardContent>
-        <div className='classes.cardContent'>
+        <div className={classes.cardContent}>
           <Typography gutterBottom variant='h5' component='h2'>
             {product.name}
           </Typography>

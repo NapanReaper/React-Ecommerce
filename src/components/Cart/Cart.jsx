@@ -1,4 +1,5 @@
 import { Container, Typography, Button, Grid } from '@material-ui/core';
+import CardItem from './CardItem/CardItem';
 import useStyles from './styles';
 
 const Cart = ({ cart }) => {
@@ -12,11 +13,11 @@ const Cart = ({ cart }) => {
       <Grid container spacing={3}>
         {cart.line_items.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
-            <div>{item.name}</div>
+            <CardItem item={item} />
           </Grid>
         ))}
       </Grid>
-      <div className={classes.cartDetails}>
+      <div className={classes.cardDetails}>
         <Typography variant='h4'>
           Subtotal : {cart.subtotal.formatted_with_symbol}
         </Typography>
@@ -47,10 +48,10 @@ const Cart = ({ cart }) => {
   return (
     <Container>
       <div className={classes.toolbar}>
-        <Typography variant='h3' className={classes.title}>
+        <Typography variant='h3' className={classes.title} gutterBottom>
           Your shopping Cart
         </Typography>
-        {cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+        {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
       </div>
     </Container>
   );
