@@ -1,5 +1,5 @@
 import { commerce } from './lib/commerce'
-import { Products, Navbar } from "./components"
+import { Products, Navbar, Cart } from "./components"
 import { useState, useEffect } from 'react'
 
 const App = () => {
@@ -29,6 +29,7 @@ const App = () => {
   <div>
    <Navbar total_items={cart.total_items} />
    <Products products={products} handleAddToCart={handleAddToCart} />
+   <Cart cart={cart} />
   </div>
  )
 }
